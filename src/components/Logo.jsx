@@ -4,7 +4,7 @@
 export default function Logo({ className = '' }) {
   return (
     <img
-      src="/logo.png"
+      src="/logo.avif"
       alt="Clinic Logo"
       className={`${className} object-contain`}
     />

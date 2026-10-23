@@ -70,7 +70,7 @@ export const LoginView = () => {
         <div className="text-center mb-8">
           {/* Neumorphic Brand Logo */}
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#e6ebf2] shadow-[6px_6px_14px_#c2c9d4,-6px_-6px_14px_#ffffff] mb-4 overflow-hidden">
-            <img src="/logo.png" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
+            <img src="/logo.avif" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl font-sans">
             Dr. Pragya Mishra

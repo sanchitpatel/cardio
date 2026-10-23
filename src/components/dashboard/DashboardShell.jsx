@@ -113,7 +113,7 @@ export const DashboardShell = ({ activeTab, onTabChange, children }) => {
         {/* Brand Header */}
         <div className="p-4 border-b border-zinc-300/50 flex items-center gap-2.5">
           <div className="w-14 h-14 rounded-full bg-[#e6ebf2] shadow-[4px_4px_8px_#c2c9d4,-4px_-4px_8px_#ffffff] border border-white/60 flex items-center justify-center overflow-hidden shrink-0">
-            <img src="/logo.png" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
+            <img src="/logo.avif" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
           </div>
           <div className="overflow-hidden">
             <h1 className="text-base font-bold tracking-tight text-zinc-900 truncate">

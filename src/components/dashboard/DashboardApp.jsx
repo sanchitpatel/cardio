@@ -170,7 +170,7 @@ const DashboardContent = () => {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
         <div className="relative z-10 flex flex-col items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-white border border-zinc-200 flex items-center justify-center shadow-[0_4px_20px_rgba(16,185,129,0.15)] animate-pulse overflow-hidden">
-            <img src="/logo.png" alt="Clinic Logo" className="w-full h-full object-contain" />
+            <img src="/logo.avif" alt="Clinic Logo" className="w-full h-full object-contain" />
           </div>
           <div className="flex items-center gap-2 text-sm text-zinc-600 font-medium">
             <CircleNotch size={18} className="animate-spin text-emerald-600" />
