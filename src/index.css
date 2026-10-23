@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   BASE DESIGN SYSTEM — Dr. Pragya Dental (monochrome dark)
+   ========================================================================== */
+
+/* 1. Global Variables */
+:root {
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-newsreader: 'Newsreader', Georgia, serif;
+  --font-times: 'Times New Roman', Times, serif;
+  --font-georgia: Georgia, serif;
+
+
+  /* Gynecology Design System (Refined Navy & Dusty Peony) */
+  --gyno-bg: #FAF8F5;
+  --gyno-surface: #FFFFFF;
+  --gyno-subtle: #F4EFEB;
+  --gyno-navy: #0B223D;
+  --gyno-navy-deep: #061628;
+  --gyno-navy-muted: #4B5E75;
+  --gyno-navy-faint: #7A8C9E;
+  --gyno-peony: #C86D7C;
+  --gyno-peony-deep: #B25464;
+  --gyno-peony-light: #E297A4;
+  --gyno-peony-tint: #FBF0F2;
+  --gyno-peony-border: #F0D4DA;
+  --gyno-border: #E8DFD6;
+  --gyno-border-hairline: rgba(11, 34, 61, 0.08);
+
+  /* Monochrome palette (kept for backward compatibility during component migration) */
+  --ink: #0a0a0b;
+  --ink-800: #101012;
+  --ink-700: #18181b;
+  --chalk: #f5f5f7;
+  --ash: #8a8a93;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Transition Curves */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Base Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Must stay `auto`. Lenis sets the scroll position every frame; a `smooth`
+     value makes the browser re-animate toward each write, which fights Lenis
+     and causes laggy scrolling + drift/overshoot when momentum stops
+     (most visible on touch devices). Smooth anchor jumps are handled in JS
+     via Lenis `scrollTo` / `scrollIntoView`. */
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--gyno-bg);
+  color: var(--gyno-navy);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .bg-gyno-bg { background-color: var(--gyno-bg); }
+  .bg-gyno-surface { background-color: var(--gyno-surface); }
+  .bg-gyno-subtle { background-color: var(--gyno-subtle); }
+  .bg-gyno-navy { background-color: var(--gyno-navy); }
+  .bg-gyno-navy-deep { background-color: var(--gyno-navy-deep); }
+  .bg-gyno-peony { background-color: var(--gyno-peony); }
+  .bg-gyno-peony-deep { background-color: var(--gyno-peony-deep); }
+  .bg-gyno-peony-tint { background-color: var(--gyno-peony-tint); }
+
+  .text-gyno-navy { color: var(--gyno-navy); }
+  .text-gyno-navy-deep { color: var(--gyno-navy-deep); }
+  .text-gyno-navy-muted { color: var(--gyno-navy-muted); }
+  .text-gyno-navy-faint { color: var(--gyno-navy-faint); }
+  .text-gyno-peony { color: var(--gyno-peony); }
+
+  .border-gyno-border { border-color: var(--gyno-border); }
+  .border-gyno-peony { border-color: var(--gyno-peony); }
+  .border-gyno-peony-border { border-color: var(--gyno-peony-border); }
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(245, 245, 247, 0.85);
+  color: #0a0a0b;
+}
+
+/* 3. Layout Shell */
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--ink);
+}
+
+/* 4. Scrollbar Styling (dark) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2e33;
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera, Edge, Firefox */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 5. Lenis Smooth Scroll Configuration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* 6. Utilities */
+/* Fine-grain film texture for dark surfaces (apply to fixed pointer-events-none layers only) */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

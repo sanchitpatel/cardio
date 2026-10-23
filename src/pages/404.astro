@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NotFoundPage from '../components/pages/NotFoundPage.jsx';
+import siteData from '../data/site.json';
+---
+
+<Layout 
+  title={`404 - Page Not Found | ${siteData.name}`}
+  description="The page you are looking for does not exist or has been moved."
+>
+  <NotFoundPage client:load onGoHome={() => window.location.href = '/'} />
+</Layout>
+

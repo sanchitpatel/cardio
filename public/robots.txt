@@ -1,0 +1,22 @@
+# Allow all web crawlers and AI search agents
+User-agent: *
+Allow: /
+
+# Explicitly allow major AI Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap: https://ip360.in/sitemap-index.xml
+Sitemap: https://ip360.in/sitemap-index.xml

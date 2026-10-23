@@ -1,0 +1,881 @@
+media:
+  input: public
+  output: /
+
+content:
+  - name: site
+    label: Global Site Settings
+    type: file
+    path: src/data/site.json
+    fields:
+      - name: name
+        label: Site Name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: bookButtonLabel
+        label: Header Book Now Button Text
+        type: string
+      - name: whatsappPhone
+        label: WhatsApp Phone Number
+        type: string
+      - name: phone
+        label: Contact Phone Display
+        type: string
+      - name: email
+        label: Contact Email Address
+        type: string
+      - name: address
+        label: Full Address
+        type: text
+
+  - name: hero
+    label: Hero Section
+    type: file
+    path: src/data/hero.json
+    fields:
+      - name: headlineLine1
+        label: Headline Line 1
+        type: string
+      - name: headlineLine2
+        label: Headline Line 2
+        type: string
+      - name: subtitle
+        label: Subtitle Text
+        type: text
+      - name: ctaPrimaryLabel
+        label: Primary Button Text (Plan Your Event)
+        type: string
+      - name: ctaSecondaryLabel
+        label: Secondary Button Text (Explore Faculties)
+        type: string
+      - name: badgePrefix
+        label: Badge Prefix Text
+        type: string
+      - name: badgeText
+        label: Highlight Badge Text
+        type: string
+
+  - name: about
+    label: About Us Section & Page
+    type: file
+    path: src/data/about.json
+    fields:
+      - name: badge
+        label: Home Section Badge
+        type: string
+      - name: title
+        label: Home Section Title
+        type: string
+      - name: image
+        label: Home Main Campus Photo
+        type: image
+      - name: paragraph1
+        label: Home First Paragraph
+        type: text
+      - name: paragraph2
+        label: Home Second Paragraph
+        type: text
+      - name: ctaLabel
+        label: Home Button Text (Schedule a Visit)
+        type: string
+      - name: stats
+        label: Statistics Counter Grid
+        type: object
+        list: true
+        fields:
+          - name: value
+            label: Stat Value
+            type: string
+          - name: label
+            label: Stat Label
+            type: string
+      - name: aboutPage
+        label: Dedicated About Us Page Settings
+        type: object
+        fields:
+          - name: badge
+            label: Page Badge (e.g. University Vision & Heritage)
+            type: string
+          - name: titlePrefix
+            label: Page Title Prefix (e.g. Empowering Future)
+            type: string
+          - name: titleHighlight
+            label: Page Title Highlight (e.g. Global Leaders)
+            type: string
+          - name: subtitle
+            label: Page Subtitle Description
+            type: text
+          - name: backButtonLabel
+            label: Back Button Text (e.g. Back to Home)
+            type: string
+          - name: mainImage
+            label: Page Feature Photo
+            type: image
+          - name: mainImageAlt
+            label: Page Feature Photo Alt Description
+            type: string
+          - name: storyBadge
+            label: Story Section Badge
+            type: string
+          - name: storyTitle
+            label: Story Heading
+            type: string
+          - name: storyParagraph1
+            label: Story Paragraph 1
+            type: text
+          - name: storyParagraph2
+            label: Story Paragraph 2
+            type: text
+          - name: storyParagraph3
+            label: Story Paragraph 3
+            type: text
+          - name: features
+            label: Feature Bullet Cards
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Feature Title
+                type: string
+              - name: desc
+                label: Feature Description
+                type: text
+          - name: pillarsBadge
+            label: Core Pillars Section Badge
+            type: string
+          - name: pillarsTitle
+            label: Core Pillars Section Title
+            type: string
+          - name: pillars
+            label: Core Pillar Cards
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Pillar Title
+                type: string
+              - name: desc
+                label: Pillar Description
+                type: text
+          - name: ctaTitle
+            label: Page Bottom CTA Title
+            type: string
+          - name: ctaSubtitle
+            label: Page Bottom CTA Subtitle
+            type: text
+          - name: ctaButtonLabel
+            label: Page Bottom CTA Button Text
+            type: string
+
+  - name: faculties
+    label: Colleges & Faculties
+    type: file
+    path: src/data/faculties.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: title
+        label: Main Title
+        type: string
+      - name: subtitle
+        label: Subtitle Description
+        type: text
+      - name: ctaLabel
+        label: Button Text (Explore All Faculties)
+        type: string
+      - name: featured
+        label: Featured Major Institutions
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Faculty Name
+            type: string
+          - name: desc
+            label: Description
+            type: text
+          - name: stats
+            label: Degree Programs / Stats
+            type: string
+          - name: img
+            label: Faculty Image
+            type: image
+      - name: secondary
+        label: Additional Faculties
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Faculty Name
+            type: string
+          - name: stats
+            label: Programs Offered
+            type: string
+          - name: img
+            label: Faculty Image
+            type: image
+      - name: spacesPage
+        label: Dedicated Faculties Page Settings
+        type: object
+        fields:
+          - name: backButtonLabel
+            label: Back Button Label Text
+            type: string
+          - name: badge
+            label: Page Badge
+            type: string
+          - name: titlePrefix
+            label: Title Prefix
+            type: string
+          - name: titleHighlight
+            label: Title Highlight
+            type: string
+          - name: subtitle
+            label: Page Subtitle Description
+            type: text
+          - name: heroImage
+            label: Hero Showcase Image
+            type: image
+          - name: heroImageAlt
+            label: Hero Showcase Image Alt Text
+            type: string
+          - name: heroImageCaption
+            label: Hero Showcase Image Caption Overlay
+            type: string
+          - name: spacesList
+            label: Dedicated Page Faculties List
+            type: object
+            list: true
+            fields:
+              - name: name
+                label: Faculty Name
+                type: string
+              - name: category
+                label: Category (Medical Sciences / Dental Surgery / Technology & AI / Business & Law)
+                type: string
+              - name: desc
+                label: Description
+                type: text
+              - name: capacity
+                label: Guest Capacity
+                type: string
+              - name: area
+                label: Square Footage / Area
+                type: string
+              - name: idealFor
+                label: Ideal Event Types
+                type: string
+              - name: img
+                label: Space Photo
+                type: image
+          - name: amenitiesBadge
+            label: Infrastructure Badge
+            type: string
+          - name: amenitiesTitle
+            label: Infrastructure Title
+            type: string
+          - name: amenities
+            label: Infrastructure & Facilities List
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Facility Title
+                type: string
+              - name: desc
+                label: Facility Description
+                type: text
+          - name: ctaTitle
+            label: Bottom CTA Title
+            type: string
+          - name: ctaSubtitle
+            label: Bottom CTA Subtitle
+            type: text
+          - name: ctaButtonLabel
+            label: Bottom CTA Button Label
+            type: string
+
+  - name: experiences
+    label: Offerings & Experiences
+    type: file
+    path: src/data/experiences.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: title
+        label: Main Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: text
+      - name: ctaLabel
+        label: Button Text (Learn More)
+        type: string
+      - name: offerings
+        label: Service Offerings List
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Service Title
+            type: string
+          - name: desc
+            label: Service Description
+            type: text
+      - name: images
+        label: Experience Collage Photos
+        type: object
+        list: true
+        fields:
+          - name: img
+            label: Photo Image
+            type: image
+          - name: alt
+            label: Caption / Alt Description
+            type: string
+
+  - name: corporate
+    label: Corporate Events
+    type: file
+    path: src/data/corporate.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: titleLine1
+        label: Title Line 1
+        type: string
+      - name: titleLine2
+        label: Title Line 2
+        type: string
+      - name: bgImage
+        label: Background Image
+        type: image
+      - name: subtitle
+        label: Subtitle Paragraph
+        type: text
+      - name: ctaPrimaryLabel
+        label: Primary Button Text (Plan Your Offsite)
+        type: string
+      - name: ctaSecondaryLabel
+        label: Secondary Button Text (Locate Us)
+        type: string
+      - name: stats
+        label: Corporate Stats
+        type: object
+        list: true
+        fields:
+          - name: value
+            label: Stat Value
+            type: string
+          - name: label
+            label: Stat Label
+            type: string
+
+  - name: gallery
+    label: Candid Photo Gallery
+    type: file
+    path: src/data/gallery.json
+    fields:
+      - name: badge
+        label: Home Section Badge
+        type: string
+      - name: titlePrefix
+        label: Home Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Home Title Suffix
+        type: string
+      - name: subtitle
+        label: Home Subtitle
+        type: text
+      - name: ctaLabel
+        label: Home Button Text (View All Photos)
+        type: string
+      - name: galleryPage
+        label: Dedicated Gallery Page Settings
+        type: object
+        fields:
+          - name: badge
+            label: Page Badge (e.g. Visual Archives)
+            type: string
+          - name: titlePrefix
+            label: Page Title Prefix (e.g. BIU)
+            type: string
+          - name: titleHighlight
+            label: Page Title Highlight (e.g. Photo Gallery)
+            type: string
+          - name: subtitle
+            label: Page Subtitle Description
+            type: text
+          - name: backButtonLabel
+            label: Back Button Text (e.g. Back to Home)
+            type: string
+          - name: emptyStateMessage
+            label: Empty State Message
+            type: string
+      - name: images
+        label: Photo Collection (All Photos)
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Image File
+            type: image
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: caption
+            label: Photo Caption / Lightbox Title
+            type: string
+
+  - name: hostels
+    label: Hostels & Student Residencies
+    type: file
+    path: src/data/hostels.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: title
+        label: Section Title
+        type: string
+      - name: slides
+        label: Residential Blocks
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Hostel Block Name
+            type: string
+          - name: count
+            label: Room Category (Single / Twin Sharing)
+            type: string
+          - name: label
+            label: Capacity Label
+            type: string
+          - name: desc
+            label: Description
+            type: text
+          - name: features
+            label: Highlight Features / Bullet Points
+            type: string
+            list: true
+          - name: img
+            label: Hostel Photo
+            type: image
+
+  - name: news
+    label: News & Research Bulletins
+    type: file
+    path: src/data/news.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: title
+        label: Section Title
+        type: string
+      - name: viewAllLabel
+        label: View All Link Text
+        type: string
+      - name: posts
+        label: News Articles List
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Unique Slug / ID
+            type: string
+          - name: title
+            label: Article Title
+            type: string
+          - name: date
+            label: Date (YYYY-MM-DD)
+            type: date
+          - name: readTime
+            label: Estimated Read Time (e.g. 5 min read)
+            type: string
+          - name: category
+            label: Category (Medical Innovation / Placement Milestones / Campus Life)
+            type: string
+          - name: excerpt
+            label: Summary / Excerpt
+            type: text
+          - name: content
+            label: Full Article Content
+            type: text
+          - name: img
+            label: Article Cover Photo
+            type: image
+      - name: journalPage
+        label: Dedicated Journal Page Settings
+        type: object
+        fields:
+          - name: backButtonLabel
+            label: Back Button Text
+            type: string
+          - name: badge
+            label: Page Badge
+            type: string
+          - name: titlePrefix
+            label: Title Prefix
+            type: string
+          - name: titleHighlight
+            label: Title Highlight
+            type: string
+          - name: subtitle
+            label: Page Subtitle Description
+            type: text
+          - name: featuredPostId
+            label: Featured Article ID
+            type: string
+          - name: featuredCaption
+            label: Featured Badge Caption
+            type: string
+          - name: ctaTitle
+            label: Bottom CTA Title
+            type: string
+          - name: ctaSubtitle
+            label: Bottom CTA Subtitle
+            type: text
+          - name: ctaButtonLabel
+            label: Bottom CTA Button Label
+            type: string
+
+  - name: testimonials
+    label: Client Reviews & Highlights
+    type: file
+    path: src/data/testimonials.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: titleLine1
+        label: Title Line 1
+        type: string
+      - name: titleLine2
+        label: Title Line 2
+        type: string
+      - name: googleRating
+        label: Google Review Rating Badge
+        type: string
+      - name: reviews
+        label: Client Reviews List
+        type: object
+        list: true
+        fields:
+          - name: quote
+            label: Review Quote
+            type: text
+          - name: name
+            label: Client Name / Family
+            type: string
+          - name: meta
+            label: Celebration Type
+            type: string
+
+  - name: location
+    label: Location & Map Info
+    type: file
+    path: src/data/location.json
+    fields:
+      - name: titleLine1
+        label: Title Line 1
+        type: string
+      - name: titleLine2
+        label: Title Line 2
+        type: string
+      - name: venueName
+        label: Venue Name
+        type: string
+      - name: address
+        label: Address
+        type: text
+      - name: distances
+        label: Distance & Landmark Bullet Points
+        type: string
+        list: true
+      - name: travelTimeDisclaimer
+        label: Travel Time Disclaimer Note
+        type: string
+      - name: directionsButtonLabel
+        label: Directions Button Text
+        type: string
+      - name: parkingText
+        label: Parking Note
+        type: string
+
+  - name: faq
+    label: Frequently Asked Questions
+    type: file
+    path: src/data/faq.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: questions
+        label: FAQ Question Items
+        type: object
+        list: true
+        fields:
+          - name: q
+            label: Question
+            type: string
+          - name: a
+            label: Answer
+            type: text
+
+  - name: contact
+    label: Contact Form Section
+    type: file
+    path: src/data/contact.json
+    fields:
+      - name: badge
+        label: Section Badge
+        type: string
+      - name: title
+        label: Section Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: text
+      - name: submitButtonText
+        label: Submit Button Text
+        type: string
+      - name: thankYouTitle
+        label: Thank You Title
+        type: string
+      - name: thankYouMessage
+        label: Thank You Message
+        type: text
+
+  - name: footer
+    label: Footer Details
+    type: file
+    path: src/data/footer.json
+    fields:
+      - name: ctaTitle
+        label: Footer CTA Title
+        type: string
+      - name: ctaSubtitle
+        label: Footer CTA Subtitle
+        type: text
+      - name: ctaButtonLabel
+        label: CTA Button Text
+        type: string
+      - name: brandTagline
+        label: Brand Description Tagline
+        type: string
+      - name: copyrightText
+        label: Copyright Line
+        type: string
+
+  - name: placements
+    label: Corporate Partnerships & Placements Page
+    type: file
+    path: src/data/placements.json
+    fields:
+      - name: badge
+        label: Home Section Badge
+        type: string
+      - name: titleLine1
+        label: Home Section Title Line 1
+        type: string
+      - name: titleLine2
+        label: Home Section Title Line 2
+        type: string
+      - name: bgImage
+        label: Home Section Background Image
+        type: image
+      - name: subtitle
+        label: Home Section Subtitle Text
+        type: text
+      - name: stats
+        label: Home Section Stats Counters
+        type: object
+        list: true
+        fields:
+          - name: value
+            label: Stat Value
+            type: string
+          - name: label
+            label: Stat Label
+            type: string
+      - name: ctaPrimaryLabel
+        label: Home Primary Button Label
+        type: string
+      - name: ctaSecondaryLabel
+        label: Home Secondary Button Label
+        type: string
+      - name: corporatePage
+        label: Dedicated Corporate Page Settings
+        type: object
+        fields:
+          - name: badge
+            label: Page Badge
+            type: string
+          - name: titlePrefix
+            label: Title Prefix
+            type: string
+          - name: titleHighlight
+            label: Title Highlight
+            type: string
+          - name: subtitle
+            label: Page Subtitle Description
+            type: text
+          - name: backButtonLabel
+            label: Back Button Text
+            type: string
+          - name: heroImage
+            label: Hero Background Photo
+            type: image
+          - name: heroCaption
+            label: Hero Image Badge Caption
+            type: string
+          - name: stats
+            label: Page Key Metrics Stats
+            type: object
+            list: true
+            fields:
+              - name: value
+                label: Metric Value
+                type: string
+              - name: label
+                label: Metric Label
+                type: string
+          - name: venues
+            label: Placement Sectors List
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: Sector Unique ID
+                type: string
+              - name: name
+                label: Sector Name
+                type: string
+              - name: tagline
+                label: Sector Tagline / Subtitle
+                type: string
+              - name: capacity
+                label: Placed Graduates / Records
+                type: string
+              - name: area
+                label: Key Metrics
+                type: string
+              - name: image
+                label: Sector Photo
+                type: image
+              - name: description
+                label: Sector Full Description
+                type: text
+              - name: layouts
+                label: Recruiting Partners
+                type: string
+                list: true
+              - name: features
+                label: Key Training & Support Highlights
+                type: string
+                list: true
+          - name: ctaTitle
+            label: Page Bottom CTA Title
+            type: string
+          - name: ctaSubtitle
+            label: Page Bottom CTA Subtitle
+            type: text
+
+  - name: hostels
+    label: Student Hostels & Housing Page
+    type: file
+    path: src/data/hostels.json
+    fields:
+      - name: badge
+        label: Page Badge
+        type: string
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleHighlight
+        label: Title Highlight
+        type: string
+      - name: subtitle
+        label: Page Subtitle Description
+        type: text
+      - name: backButtonLabel
+        label: Back Button Text
+        type: string
+      - name: heroImage
+        label: Hero Background Photo
+        type: image
+      - name: categories
+        label: Residential Block Filter Tabs
+        type: string
+        list: true
+      - name: rooms
+        label: Available Residential Blocks List
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Block Unique ID
+            type: string
+          - name: name
+            label: Block Name
+            type: string
+          - name: type
+            label: Room Category (Single / Twin Sharing)
+            type: string
+          - name: tagline
+            label: Subtitle / Tagline
+            type: string
+          - name: price
+            label: AC & Security Details
+            type: string
+          - name: capacity
+            label: Student Capacity
+            type: string
+          - name: description
+            label: Full Description
+            type: text
+          - name: amenities
+            label: Hostel Amenities List
+            type: string
+            list: true
+      - name: inclusions
+        label: Campus Living Inclusions Bullet List
+        type: string
+        list: true
+      - name: reviews
+        label: Student & Alumni Reviews
+        type: object
+        list: true
+        fields:
+          - name: quote
+            label: Review Quote Text
+            type: text
+          - name: author
+            label: Student Name
+            type: string
+          - name: detail
+            label: Program / Batch Detail
+            type: string
+          - name: rating
+            label: Star Rating (1 to 5)
+            type: number
+      - name: ctaTitle
+        label: Page Bottom CTA Title
+        type: string
+      - name: ctaSubtitle
+        label: Page Bottom CTA Subtitle
+        type: text

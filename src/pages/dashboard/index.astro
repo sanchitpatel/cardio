@@ -1,0 +1,61 @@
+---
+import "../../styles/dashboard.css";
+import DashboardApp from "../../components/dashboard/DashboardApp.jsx";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="any" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo.png" />
+    <link rel="shortcut icon" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Pragya Mishra — Clinical Patient Management Dashboard</title>
+    <meta name="description" content="Secure clinical management portal for patient tracking, follow-ups, and daily queues." />
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- PWA & Mobile Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#e6ebf2" />
+    <meta name="msapplication-navbutton-color" content="#e6ebf2" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Clinic Console" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- PWA Service Worker Registration -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err) {
+            console.warn('PWA registration skipped:', err);
+          });
+        });
+      }
+    </script>
+
+    <!-- Subdomain Guard: Block on root live domain -->
+    <script is:inline>
+      (function() {
+        var h = window.location.hostname;
+        if (h === 'ip360.in' || h === 'www.ip360.in') {
+          window.location.replace('/404');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[#e6ebf2] text-zinc-900 antialiased selection:bg-emerald-500/20 selection:text-emerald-900 h-screen overflow-hidden">
+    <DashboardApp client:load />
+  </body>
+</html>

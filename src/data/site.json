@@ -1,0 +1,26 @@
+{
+  "name": "Dr. Pragya's Advanced Dental Care",
+  "shortName": "Dr. Pragya Dental",
+  "doctor": "Dr. Pragya Mishra",
+  "credentials": "BDS, MDS (Prosthodontics & Implantology)",
+  "tagline": "Precise, gentle dentistry for a healthier smile",
+  "bookButtonLabel": "Book Appointment",
+  "whatsappPhone": "918006460900",
+  "whatsappMessage": "Hello Dr. Pragya's Advanced Dental Care, I would like to book a dental appointment. Could you share your available slots?",
+  "email": "dr.pragyamishra@gmail.com",
+  "phone": "+91 8006 460 900",
+  "phoneSecondary": "+91 8006 460 900",
+  "phoneEmergency": "+91 8006 460 900",
+  "address": "Keshlata Hospital Bareilly, Delapeer, Rajendra Nagar, Bareilly, Uttar Pradesh 243122 (Stadium Road, Near Delapeer Chauraha)",
+  "hours": "Mon – Sat: 10:30 AM – 2:00 PM & 7:00 PM – 8:30 PM",
+  "hoursMorning": "Morning: Mon – Sat (10:30am to 2:00pm)",
+  "hoursEvening": "Evening: Mon – Sat (7:00pm to 8:30pm)",
+  "hoursSunday": "Sunday: Emergency only",
+  "appointmentNote": "(Appointment available on request)",
+  "emergencyNote": "Sunday: Emergency only (Appointment available on request)",
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/dr.pragyamishra",
+    "facebook": "https://www.facebook.com/drpragyamishra",
+    "justdial": "https://www.justdial.com/Bareilly/Dr--Pragya-Advanced-Dental-Care"
+  }
+}

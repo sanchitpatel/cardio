@@ -1,0 +1,84 @@
+---
+import "../index.css";
+import "../App.css";
+import siteData from "../data/site.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${siteData.name} — ${siteData.tagline}`,
+  description = "Dr. Pragya's Advanced Dental Care in Bareilly. Expert dental implants, painless root canal treatment, invisible aligners, smile makeovers, and gentle dentistry by Dr. Pragya Mishra (BDS, MDS).",
+} = Astro.props;
+
+const whatsappUrl = `https://wa.me/${siteData.whatsappPhone || '918006460900'}?text=${encodeURIComponent(siteData.whatsappMessage || 'Hello Dr. Pragya Advanced Dental Care, I would like to book an appointment.')}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/logo.png"
+    />
+    <link rel="shortcut icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <!-- SEO & Search Engine Meta Tags -->
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://ip360.in" />
+
+    <!-- Open Graph / WhatsApp / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ip360.in" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/logo.png" />
+    <meta
+      property="og:image:secure_url"
+      content="/logo.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content={siteData.name}
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ip360.in" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Jost:ital,wght@0,300..700;1,300..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@400;600;700&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#FAF8F5] text-gyno-navy antialiased selection:bg-gyno-peony/25 selection:text-gyno-navy">
+    <slot />
+
+    <!-- Floating WhatsApp Appointment Button -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Direct WhatsApp Consultation & Appointment"
+      class="fixed bottom-6 right-6 z-50 flex h-13 w-13 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white text-gyno-navy shadow-[0_10px_30px_rgba(11,34,61,0.18)] ring-1 ring-gyno-border transition-all duration-300 hover:scale-110 active:scale-95 group"
+    >
+      <svg class="h-6 w-6 sm:h-7 sm:w-7 fill-current text-[#25D366]" viewBox="0 0 256 256">
+        <path d="M128,24A104,104,0,0,0,36.8,179.8L24.6,222.8a12,12,0,0,0,14.6,14.6l43-12.2A104,104,0,1,0,128,24Zm0,192a87.6,87.6,0,0,1-44.9-12.3,6,6,0,0,0-4.7-.6l-34.9,9.9,9.9-34.9a6,6,0,0,0-.6-4.7A88,88,0,1,1,128,216Zm51.3-64.7-20-10a14.1,14.1,0,0,0-15.7,2.8l-7.7,7.8a4,4,0,0,1-4.3,1,72.6,72.6,0,0,1-30.7-30.7,4,4,0,0,1,1-4.3l7.8-7.7a14.1,14.1,0,0,0,2.8-15.7l-10-20a14,14,0,0,0-19.4-6.4l-11.3,5.6a14.1,14.1,0,0,0-7.8,12.5,90.4,90.4,0,0,0,76.6,76.6,14.1,14.1,0,0,0,12.5-7.8l5.6-11.3A14,14,0,0,0,179.3,151.3Z"/>
+      </svg>
+    </a>
+  </body>
+</html>

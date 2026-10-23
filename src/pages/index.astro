@@ -1,0 +1,43 @@
+---
+// src/pages/index.astro — Dr. Pragya's Advanced Dental Care
+import Layout from '../layouts/Layout.astro';
+import siteData from '../data/site.json';
+
+// Homepage Islands
+import Navbar from '../components/Navbar.jsx';
+import Hero from '../components/Hero.jsx';
+import About from '../components/About.jsx';
+import Location from '../components/Location.jsx';
+import Contact from '../components/Contact.jsx';
+import Testimonials from '../components/Testimonials.jsx';
+import Faq from '../components/Faq.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout title={`${siteData.name} — ${siteData.tagline}`} description={`${siteData.name} by ${siteData.doctor} (${siteData.credentials}). ${siteData.tagline}. Located in Civil Lines, Bareilly.`}>
+  <!-- Navigation Bar -->
+  <Navbar client:load />
+
+  <main>
+    <!-- 1. Hero Section -->
+    <Hero client:load />
+
+    <!-- 2. About Section -->
+    <About client:visible />
+
+    <!-- 3. Location & Studio Section -->
+    <Location client:visible />
+
+    <!-- 4. Contact / Appointment Form -->
+    <Contact client:visible />
+
+    <!-- 5. Reviews / Testimonials -->
+    <Testimonials client:visible />
+
+    <!-- 6. FAQ Section -->
+    <Faq client:visible />
+  </main>
+
+  <!-- 7. Footer -->
+  <Footer client:visible />
+</Layout>
