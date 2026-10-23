@@ -16,7 +16,7 @@ export default {
       },
       colors: {
         // ---- Gynecology & Obstetrics Design System (Refined Navy & Dusty Peony) ----
-        gyno: {
+        cardio: {
           bg: '#FAF8F5',         // Warm Alabaster canvas
           surface: '#FFFFFF',    // Pristine elevated card surface
           subtle: '#F4EFEB',     // Warm Sand / secondary fill

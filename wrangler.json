@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "gyno",
+  "name": "cardio",
   "main": "src/worker.js",
   "workers_dev": true,
   "preview_urls": false,

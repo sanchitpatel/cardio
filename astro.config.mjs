@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
-// https://astro.build/config — updated for gyno theme
+// https://astro.build/config — updated for cardio theme
 export default defineConfig({
   site: 'https://ip360.in',
   integrations: [react()],
