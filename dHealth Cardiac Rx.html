@@ -1,6 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>dHealth Cardiac Rx</title>
-<link rel="icon" type="image/avif" href="public/logo.avif">
+<link rel="icon" type="image/avif" href="/logo.avif">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -403,7 +403,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 <header class="hdr"><div class="hdr-in">
   <div class="top">
     <button type="button" class="icon-btn mobile-menu-btn" data-act="toggleSidebar" id="hb-menu" aria-label="Open sections menu" title="Sections menu"></button>
-    <div class="brand"><span class="mark" id="logo"><img src="public/logo.avif" alt="dHealth Clinic Logo" onerror="if(this.src.indexOf('public/')!==-1)this.src='logo.avif'"></span><div><b>dHealth</b><small>Cardiac Rx</small></div></div>
+    <div class="brand"><span class="mark" id="logo"><img src="/logo.avif" alt="dHealth Clinic Logo" onerror="this.onerror=null;this.src='public/logo.avif'"></span><div><b>dHealth</b><small>Cardiac Rx</small></div></div>
     <div class="top-act">
       <button type="button" class="icon-btn" data-act="settings" id="hb-set" aria-label="Clinic and doctor details" title="Clinic & doctor details"></button>
       <button type="button" class="btn sm" data-act="newp" id="hb-new">New patient</button>
@@ -467,7 +467,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
-const LOGO_IMG='<img src="public/logo.avif" alt="dHealth Clinic Logo" onerror="if(this.src.indexOf(\'public/\')!==-1)this.src=\'logo.avif\'">';
+const LOGO_IMG='<img src="/logo.avif" alt="dHealth Clinic Logo" onerror="this.onerror=null;this.src=\'public/logo.avif\'">';
 const ICON={
   pulse:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>',
   check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>',
