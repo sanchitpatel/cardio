@@ -167,17 +167,60 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .preview{display:none}
 .doc-inline{min-width:0}
 
+.mobile-menu-btn{display:none}
+.sidebar-close-btn{display:none}
+.sidebar-backdrop{display:none}
+
 @media (max-width:999px){
-  .sidebar{width:100%;max-width:600px;margin-inline:auto}
-  .pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-}
-@media (max-width:480px){
-  .pills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mobile-menu-btn{display:grid}
+  .sidebar-close-btn{display:grid;width:28px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,0.8);background:#e6ebf2;color:var(--muted);place-items:center;box-shadow:2px 2px 4px #c2c9d4,-2px -2px 4px #ffffff}
+  .sidebar-close-btn svg{width:14px;height:14px}
+  .sidebar-backdrop{
+    display:block;
+    position:fixed;
+    inset:0;
+    z-index:45;
+    background:rgba(15,23,42,.45);
+    backdrop-filter:blur(2px);
+  }
+  .sidebar-backdrop[hidden]{display:none!important}
+  .sidebar{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    z-index:50;
+    width:250px;
+    max-width:82vw;
+    background:#e6ebf2;
+    padding:max(16px,env(safe-area-inset-top,0px)) 12px max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+    transform:translateX(-100%);
+    transition:transform .25s cubic-bezier(0.16,1,0.3,1);
+    box-shadow:8px 0 24px rgba(0,0,0,0.22);
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+  }
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-card{
+    background:#e6ebf2;
+    border:1px solid rgba(255,255,255,0.85);
+    border-radius:16px;
+    padding:12px 10px;
+    box-shadow:inset 4px 4px 12px #ffffff,inset -4px -4px 12px rgba(0,0,0,0.14);
+    height:100%;
+    overflow-y:auto;
+  }
+  .pills{display:flex;flex-direction:column;gap:5px}
+  .pill{min-height:40px;padding:8px 10px;font-size:13px}
 }
 
 @media (min-width:1000px){
+  .mobile-menu-btn{display:none!important}
+  .sidebar-close-btn{display:none!important}
+  .sidebar-backdrop{display:none!important}
   .layout{grid-template-columns:160px minmax(420px,500px) minmax(0,1fr);align-items:start;padding-block:18px 0;gap:16px}
-  .sidebar{display:block;position:sticky;top:calc(var(--hh,90px) + env(safe-area-inset-top,0px) + 16px);max-height:calc(100vh - var(--hh,90px) - 32px);overflow:auto}
+  .sidebar{display:block!important;position:sticky;top:calc(var(--hh,90px) + env(safe-area-inset-top,0px) + 16px);max-height:calc(100vh - var(--hh,90px) - 32px);overflow:auto;transform:none!important;box-shadow:none!important;width:auto!important;max-width:none!important;padding:0!important;background:transparent!important}
   .form-col{margin:0;max-width:none}
   .preview{display:flex;flex-direction:column;gap:10px;position:sticky;top:calc(var(--hh,90px) + env(safe-area-inset-top,0px) + 16px);max-height:calc(100vh - var(--hh,90px) - 32px);overflow:auto;padding-bottom:16px;min-width:0}
   .doc-inline{display:none}
@@ -356,6 +399,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 <header class="hdr"><div class="hdr-in">
   <div class="top">
+    <button type="button" class="icon-btn mobile-menu-btn" data-act="toggleSidebar" id="hb-menu" aria-label="Open sections menu" title="Sections menu"></button>
     <div class="brand"><span class="mark" id="logo"></span><div><b>dHealth</b><small>Cardiac Rx</small></div></div>
     <div class="top-act">
       <button type="button" class="icon-btn" data-act="settings" id="hb-set" aria-label="Clinic and doctor details" title="Clinic & doctor details"></button>
@@ -366,12 +410,16 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
   <div class="prog"><i id="st-prog"></i></div>
 </div></header>
 
+<div class="sidebar-backdrop" id="sb-backdrop" data-act="closeSidebar" hidden></div>
 <div class="layout">
-  <aside class="sidebar" aria-label="Prescription sections">
+  <aside class="sidebar" id="sidebar" aria-label="Prescription sections">
     <div class="sidebar-card">
       <div class="sidebar-hdr">
         <span class="sidebar-title">Sections</span>
-        <span class="sidebar-badge" id="sb-progress">1 / 9</span>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="sidebar-badge" id="sb-progress">1 / 9</span>
+          <button type="button" class="icon-btn sm sidebar-close-btn" data-act="closeSidebar" id="sb-close" aria-label="Close sections menu" title="Close menu"></button>
+        </div>
       </div>
       <nav class="pills" id="pills" aria-label="Prescription sections"></nav>
     </div>
@@ -420,7 +468,8 @@ const ICON={
   pulse:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>',
   check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>',
   x:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>',
-  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-3a4 4 0 0 1 4-4h3"/><circle cx="10" cy="7" r="4"/><path d="M17.5 14v2m0 4v2m4-4h-2m-4 0h-2m5.3-2.8-1.4 1.4m-2.8 2.8-1.4 1.4m5.6 0-1.4-1.4m-2.8-2.8-1.4-1.4"/></svg>'
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-3a4 4 0 0 1 4-4h3"/><circle cx="10" cy="7" r="4"/><path d="M17.5 14v2m0 4v2m4-4h-2m-4 0h-2m5.3-2.8-1.4 1.4m-2.8 2.8-1.4 1.4m5.6 0-1.4-1.4m-2.8-2.8-1.4-1.4"/></svg>',
+  menu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>'
 };
 const LS='dhealth-cardiac-rx-draft-v1', LSC='dhealth-cardiac-rx-clinic-v1';
 const STEPS=[
@@ -756,10 +805,28 @@ function genQR(){if(missing().length){S.step=STEPS.length-1;go();toast('Complete
 function copy(){const t=textSummary();
   const fallback=()=>{openOv('ov-copy');const ta=$('#copy-ta');ta.value=t;ta.focus();ta.select()};
   try{navigator.clipboard.writeText(t).then(()=>toast('Prescription text copied'),fallback)}catch(e){fallback()}}
+function openSidebar(){
+  const sb=$('#sidebar'),bd=$('#sb-backdrop');
+  if(sb)sb.classList.add('open');
+  if(bd)bd.hidden=false;
+}
+function closeSidebar(){
+  const sb=$('#sidebar'),bd=$('#sb-backdrop');
+  if(sb)sb.classList.remove('open');
+  if(bd)bd.hidden=true;
+}
+function toggleSidebar(){
+  const sb=$('#sidebar');
+  if(sb&&sb.classList.contains('open'))closeSidebar();
+  else openSidebar();
+}
+
 function act(a,d,b){switch(a){
+  case'toggleSidebar':toggleSidebar();break;
+  case'closeSidebar':closeSidebar();break;
   case'next':if(S.step<STEPS.length-1){S.step++;go()}else genQR();break;
   case'back':if(S.step>0){S.step--;go()}break;
-  case'go':S.step=+d.i;go();break;
+  case'go':S.step=+d.i;closeSidebar();go();break;
   case'addMed':S.meds.push(emptyMed());render();document.getElementById('f-meds-'+(S.meds.length-1)+'-name')?.focus();break;
   case'delMed':S.meds.splice(+d.i,1);if(!S.meds.length)S.meds.push(emptyMed());render();break;
   case'addRx':S.rx.push(emptyRx());render();document.getElementById('f-rx-'+(S.rx.length-1)+'-name')?.focus();break;
@@ -774,6 +841,7 @@ function act(a,d,b){switch(a){
   case'confirmNew':S=blank();closeOv();go();toast('New patient started');break}}
 
 document.addEventListener('click',e=>{
+  if(e.target.id==='sb-backdrop'||e.target.dataset.act==='closeSidebar'){closeSidebar();return}
   if(e.target.classList&&e.target.classList.contains('ov')){closeOv();return}
   const b=e.target.closest('button');if(!b)return;const d=b.dataset;
   if(d.seg){set(d.seg,get(d.seg)===d.v?'':d.v);return render(b.id)}
@@ -783,11 +851,23 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{const el=e.target;
   if(el.dataset.k){set(el.dataset.k,el.value);live()}
   else if(el.dataset.ck){clinic[el.dataset.ck]=el.value;saveClinic();schedulePreview()}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&[...document.querySelectorAll('.ov')].some(o=>!o.hidden))closeOv()});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeSidebar();
+    if([...document.querySelectorAll('.ov')].some(o=>!o.hidden))closeOv();
+  }
+});
 
-$('#logo').innerHTML=ICON.pulse;$('#hb-set').innerHTML=ICON.gear;['#set-x','#copy-x'].forEach(s=>$(s).innerHTML=ICON.x);
+$('#logo').innerHTML=ICON.pulse;$('#hb-set').innerHTML=ICON.gear;
+const hbM=$('#hb-menu');if(hbM)hbM.innerHTML=ICON.menu;
+const sbC=$('#sb-close');if(sbC)sbC.innerHTML=ICON.x;
+['#set-x','#copy-x'].forEach(s=>$(s).innerHTML=ICON.x);
 const setHH=()=>document.documentElement.style.setProperty('--hh',$('.hdr').offsetHeight+'px');
-addEventListener('resize',()=>{setHH();schedulePreview()});
+addEventListener('resize',()=>{
+  setHH();
+  schedulePreview();
+  if(matchMedia('(min-width:1000px)').matches)closeSidebar();
+});
 render();setHH();
 </script>
 
