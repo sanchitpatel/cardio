@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@400;600;700&display=swap">
 <style>
+[hidden]{display:none!important}
 /* Layout: mobile-first stepped form (one section per screen, sticky step header + sticky action bar); on wide screens a live paper preview sits beside the form. */
 :root{
   --bg:#e6ebf2; --surface:#e6ebf2; --sunk:#dbe4ee; --field:#e6ebf2; --paper:#ffffff;
@@ -411,6 +412,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 /* overlays */
 .ov{position:fixed;inset:0;z-index:50;background:var(--scrim);display:flex;align-items:flex-end;justify-content:center}
+.ov[hidden], [hidden]{display:none!important}
 .sheet{background:#e6ebf2;width:100%;max-width:560px;border-radius:20px 20px 0 0;padding:24px max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));max-height:90%;overflow:auto;display:flex;flex-direction:column;gap:16px;border:1px solid rgba(255,255,255,0.85);box-shadow:inset 4px 4px 12px #ffffff,inset -4px -4px 12px rgba(0,0,0,0.14)}
 .sheet h2{margin:0;font-size:18px;font-weight:700;color:var(--ink)}
 .sheet-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
