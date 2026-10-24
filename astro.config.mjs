@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config — updated for cardio theme
 export default defineConfig({
-  site: 'https://ip360.in',
+  site: 'https://dhealth-cardio.vercel.app',
   integrations: [react()],
   vite: {
     envPrefix: ['VITE_', 'PUBLIC_'],
