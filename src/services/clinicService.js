@@ -529,7 +529,7 @@ export function buildNotificationMessage(type, patientName, scheduledDate, extra
   if (type === 'google_review') {
     return `Namaste ${cleanName} ji,
 
-We are very glad that your treatment has been successfully completed at Dr. Pragya Mishra Clinic!
+We are very glad that your treatment has been successfully completed at dHealth!
 
 Your feedback helps us continue providing the highest standard of care to our patients. Could you please take 30 seconds to share your experience on Google?
 

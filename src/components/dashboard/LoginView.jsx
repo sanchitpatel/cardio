@@ -64,21 +64,21 @@ export const LoginView = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#e6ebf2] text-zinc-800 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden font-sans select-none">
+    <div className="min-h-screen w-full bg-[#d9e2ec]/60 text-zinc-800 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden font-sans select-none">
       <div className="w-full max-w-[430px] relative z-10">
         {/* Brand Header */}
         <div className="text-center mb-8">
           {/* Neumorphic Brand Logo */}
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#e6ebf2] shadow-[6px_6px_14px_#c2c9d4,-6px_-6px_14px_#ffffff] mb-4 overflow-hidden">
-            <img src="/logo.avif" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
+            <img src="/logo.avif" alt="dHealth Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl font-sans">
-            Dr. Pragya Mishra
+            dHealth
           </h1>
         </div>
 
-        {/* Neumorphic Main Card */}
-        <div className="bg-[#e6ebf2] border border-white/80 rounded-[2rem] p-7 sm:p-9 shadow-[8px_8px_20px_#c5ccd6,-8px_-8px_20px_#ffffff]">
+        {/* Neumorphic Main Card (Inward Shadow: White on top, dark at bottom) */}
+        <div className="bg-[#e6ebf2] border border-white/80 rounded-[2rem] p-7 sm:p-9 shadow-[inset_8px_8px_20px_#ffffff,inset_-8px_-8px_20px_#c5ccd6]">
           <div className="pb-4 mb-5 border-b border-zinc-300/60 text-center">
             <h2 className="text-lg font-bold text-zinc-900">Sign In</h2>
             <p className="text-xs text-zinc-500 mt-0.5">Enter your credentials to access the clinic console</p>

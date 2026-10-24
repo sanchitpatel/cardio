@@ -113,11 +113,11 @@ export const DashboardShell = ({ activeTab, onTabChange, children }) => {
         {/* Brand Header */}
         <div className="p-4 border-b border-zinc-300/50 flex items-center gap-2.5">
           <div className="w-14 h-14 rounded-full bg-[#e6ebf2] shadow-[4px_4px_8px_#c2c9d4,-4px_-4px_8px_#ffffff] border border-white/60 flex items-center justify-center overflow-hidden shrink-0">
-            <img src="/logo.avif" alt="Dr. Pragya Mishra Clinic Logo" className="w-full h-full object-contain" />
+            <img src="/logo.avif" alt="dHealth Clinic Logo" className="w-full h-full object-contain" />
           </div>
           <div className="overflow-hidden">
             <h1 className="text-base font-bold tracking-tight text-zinc-900 truncate">
-              Dr. Pragya Mishra
+              dHealth
             </h1>
             <p className="text-[10px] font-bold text-emerald-700 tracking-wider uppercase mt-0.5">
               Clinical Portal
@@ -306,9 +306,9 @@ export const DashboardShell = ({ activeTab, onTabChange, children }) => {
       {/* ========================================================
           3. MAIN CONTENT WORKSPACE
           ======================================================== */}
-      <main className="flex-1 flex flex-col min-w-0 h-full bg-[#e6ebf2] overflow-y-scroll [scrollbar-gutter:stable] pb-20 md:pb-0">
+      <main className="flex-1 flex flex-col min-w-0 h-full bg-[#d9e2ec]/30 overflow-y-scroll [scrollbar-gutter:stable] pb-20 md:pb-0">
         {/* Top Header info bar (Desktop only) */}
-        <div className="hidden md:flex items-center justify-between px-8 py-3.5 border-b border-zinc-300/50 bg-[#e6ebf2]/80 backdrop-blur-md">
+        <div className="hidden md:flex items-center justify-between px-8 py-3.5 border-b border-zinc-300/50 bg-[#d9e2ec]/30 backdrop-blur-md">
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">
               {navItems.find(i => i.id === activeTab)?.label}

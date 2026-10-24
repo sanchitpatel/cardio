@@ -133,7 +133,7 @@ export default {
                 const formattedPhone = rawPhone.length === 10 ? `91${rawPhone}` : rawPhone;
                 const waDirectUrl = `https://wa.me/${formattedPhone}`;
 
-                const telegramText = `🔔 *New Patient Inquiry — Dr. Pragya Mishra Dental Care*\n\n👤 *Name:* ${payload.name}\n📧 *Email:* ${payload.email}\n📞 *Phone:* [${payload.phone}](${waDirectUrl})\n\n💬 *Message:*\n${payload.message}`;
+                const telegramText = `🔔 *New Patient Inquiry — dHealth*\n\n👤 *Name:* ${payload.name}\n📧 *Email:* ${payload.email}\n📞 *Phone:* [${payload.phone}](${waDirectUrl})\n\n💬 *Message:*\n${payload.message}`;
 
                 const tgRes = await fetch(
                   `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
